@@ -1,0 +1,76 @@
+int size;
+char sym[100];
+int choice(){
+	int i;
+	scanf(i);
+	if(i ==1)
+		return(1);
+	if(i == 2)
+		return(2);
+	else
+		return(0);
+}
+void assign(){
+	int i;
+	i =0;
+	sym[i] ='T';
+	sym[i+1] ='H';
+	sym[i+2] ='A';
+	sym[i+3] ='N';
+	sym[i+4] ='K';
+	sym[i+5] ='_';
+	sym[i+6] ='Y';
+	sym[i+7] ='O';
+	sym[i+8] ='U';
+	size = i +8;
+}
+void charac(){
+	int i;
+	char character;
+	char result;
+	printf("Please input a character 'a'~'z':");
+	scanf(character);
+	result = character;
+	for(i =32;i>0;i =i-1){
+		result = result -1;
+	}
+	printf("Output result:",result);
+}
+void numb(){
+	int i;
+	int result;
+	printf("Please input a number");
+	scanf(i);
+	if(i>=10){
+		if(i>=20){
+			if(i>=30){
+				result = i*2;
+			}
+			else
+				result = i*3;
+		}
+		else
+			result = i*4;
+	}
+	else 
+		result = i*i;
+	printf("Output result:",result);
+}
+void end(){
+	int i;
+	i =0;
+	for(i=0;i<=size;i=i+1)
+		printf(sym[i]);
+}
+void main(){
+	int i;
+	assign();
+	printf("Please input a number 1 or 2");
+	i =choice();
+	switch(i){
+		case 1: numb();
+		case 2: charac();
+		default: printf("input error");
+	}
+	end();
+}

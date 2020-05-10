@@ -1,0 +1,24 @@
+       name      kind        type       value       address       lev
+_____________________________________________________________________________________
+      size          2          1          0          4          0 
+       sym          4          2        100          8          0 
+    choice          0          1          0          0          1 
+         i          2          1          0          4          1 
+       end          2          1          0          4          1 
+    assign          0          5          0          0          2 
+         i          2          1          0          4          2 
+       end          2          1          8          4          2 
+    charac          0          5          0          0          3 
+         i          2          1          0          4          3 
+ character          2          2          0          8          3 
+    result          2          2          0         12          3 
+       end          2          2          1         12          3 
+      numb          0          5          0          0          4 
+         i          2          1          0          4          4 
+    result          2          1          0          8          4 
+       end          2          1          4          8          4 
+       end          0          5          0          0          5 
+         i          2          1          0          4          5 
+       end          2          1          0          4          5 
+      main          0          5          0          0          6 
+         i          2          1          0          4          6 

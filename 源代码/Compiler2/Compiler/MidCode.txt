@@ -1,0 +1,508 @@
+    var,int,size, 
+    var,char,array,sym
+    j main
+choice :
+    int,choice,(), 
+    var,int,i, 
+    li $v0,5 
+    syscall  
+    move $t0,$v0 
+    li $t1,268435868 
+    = $t1,$t0 
+    li $t0,268435868 
+    lw $t0,$t0 
+    li $t1,1 
+    require,$t0,==,$t1
+    bne,$t0,$t1,Label_1
+    li $t0,1 
+    ret,$t0, , 
+    move $v0,$t0 
+    beq,$ra,0,endprogram
+    jr $ra
+    j Label_2
+Label_1 :
+Label_2 :
+    li $t0,268435868 
+    lw $t0,$t0 
+    li $t1,2 
+    require,$t0,==,$t1
+    bne,$t0,$t1,Label_3
+    li $t0,2 
+    ret,$t0, , 
+    move $v0,$t0 
+    beq,$ra,0,endprogram
+    jr $ra
+    j Label_4
+Label_3 :
+    li $t0,0 
+    ret,$t0, , 
+    move $v0,$t0 
+    beq,$ra,0,endprogram
+    jr $ra
+Label_4 :
+    jr $ra
+assign :
+    void,assign,(), 
+    var,int,i, 
+    li $t0,268435876 
+    li $t1,0 
+    = $t0,$t1 
+    li $t0,268435876 
+    lw $t0,$t0 
+    *,$t0,4,$t0
+    addi,$t0,268435464,$t0
+    li $t1,84 
+    = $t0,$t1 
+    li $t0,268435876 
+    lw $t0,$t0 
+    li $t1,1 
+    +,$t0,$t1,$t0
+    *,$t0,4,$t0
+    addi,$t0,268435464,$t0
+    li $t1,72 
+    = $t0,$t1 
+    li $t0,268435876 
+    lw $t0,$t0 
+    li $t1,2 
+    +,$t0,$t1,$t0
+    *,$t0,4,$t0
+    addi,$t0,268435464,$t0
+    li $t1,65 
+    = $t0,$t1 
+    li $t0,268435876 
+    lw $t0,$t0 
+    li $t1,3 
+    +,$t0,$t1,$t0
+    *,$t0,4,$t0
+    addi,$t0,268435464,$t0
+    li $t1,78 
+    = $t0,$t1 
+    li $t0,268435876 
+    lw $t0,$t0 
+    li $t1,4 
+    +,$t0,$t1,$t0
+    *,$t0,4,$t0
+    addi,$t0,268435464,$t0
+    li $t1,75 
+    = $t0,$t1 
+    li $t0,268435876 
+    lw $t0,$t0 
+    li $t1,5 
+    +,$t0,$t1,$t0
+    *,$t0,4,$t0
+    addi,$t0,268435464,$t0
+    li $t1,95 
+    = $t0,$t1 
+    li $t0,268435876 
+    lw $t0,$t0 
+    li $t1,6 
+    +,$t0,$t1,$t0
+    *,$t0,4,$t0
+    addi,$t0,268435464,$t0
+    li $t1,89 
+    = $t0,$t1 
+    li $t0,268435876 
+    lw $t0,$t0 
+    li $t1,7 
+    +,$t0,$t1,$t0
+    *,$t0,4,$t0
+    addi,$t0,268435464,$t0
+    li $t1,79 
+    = $t0,$t1 
+    li $t0,268435876 
+    lw $t0,$t0 
+    li $t1,8 
+    +,$t0,$t1,$t0
+    *,$t0,4,$t0
+    addi,$t0,268435464,$t0
+    li $t1,85 
+    = $t0,$t1 
+    li $t0,268435460 
+    li $t1,268435876 
+    lw $t1,$t1 
+    li $t2,8 
+    +,$t1,$t2,$t1
+    = $t0,$t1 
+    jr $ra
+charac :
+    void,charac,(), 
+    var,int,i, 
+    var,char,character, 
+    var,char,result, 
+    Ascii "Please input a character ' a ' ~ ' z ' : " ,1 
+    la $a0,1 
+    li $v0,4 
+    syscall  
+    la $a0,0 
+    li $v0,4 
+    syscall  
+    li $v0,12 
+    syscall  
+    move $t0,$v0 
+    li $t1,268435888 
+    = $t1,$t0 
+    li $t0,268435892 
+    li $t1,268435888 
+    lw $t1,$t1 
+    = $t0,$t1 
+    li $t0,268435884 
+    li $t1,32 
+    = $t0,$t1 
+    j Label_7
+Label_6 :
+    li $t0,268435884 
+    lw $t0,$t0 
+    li $t1,0 
+    require,$t0,>,$t1
+    bgt,$t0,$t1,Label_7
+    j Label_5
+Label_7 :
+    li $t0,268435892 
+    li $t1,268435892 
+    lw $t1,$t1 
+    li $t2,1 
+    -,$t1,$t2,$t1
+    = $t0,$t1 
+    li $t0,268435884 
+    lw $t0,$t0 
+    -,$t0,1,$t0
+    li $t1,268435884 
+    = $t1,$t0 
+    j Label_6
+Label_5 :
+    Ascii "Output result : " ,2 
+    la $a0,2 
+    li $v0,4 
+    syscall  
+    li $t0,268435892 
+    lw $t0,$t0 
+    move $a0,$t0 
+    li $v0,11 
+    syscall  
+    la $a0,0 
+    li $v0,4 
+    syscall  
+    jr $ra
+numb :
+    void,numb,(), 
+    var,int,i, 
+    var,int,result, 
+    Ascii "Please input a number " ,3 
+    la $a0,3 
+    li $v0,4 
+    syscall  
+    la $a0,0 
+    li $v0,4 
+    syscall  
+    li $v0,5 
+    syscall  
+    move $t0,$v0 
+    li $t1,268435900 
+    = $t1,$t0 
+    li $t0,268435900 
+    lw $t0,$t0 
+    li $t1,10 
+    require,$t0,>=,$t1
+    blt,$t0,$t1,Label_8
+    li $t0,268435900 
+    lw $t0,$t0 
+    li $t1,20 
+    require,$t0,>=,$t1
+    blt,$t0,$t1,Label_10
+    li $t0,268435900 
+    lw $t0,$t0 
+    li $t1,30 
+    require,$t0,>=,$t1
+    blt,$t0,$t1,Label_12
+    li $t0,268435904 
+    li $t1,268435900 
+    lw $t1,$t1 
+    li $t2,2 
+    *,$t1,$t2,$t1
+    = $t0,$t1 
+    j Label_13
+Label_12 :
+    li $t0,268435904 
+    li $t1,268435900 
+    lw $t1,$t1 
+    li $t2,3 
+    *,$t1,$t2,$t1
+    = $t0,$t1 
+Label_13 :
+    j Label_11
+Label_10 :
+    li $t0,268435904 
+    li $t1,268435900 
+    lw $t1,$t1 
+    li $t2,4 
+    *,$t1,$t2,$t1
+    = $t0,$t1 
+Label_11 :
+    j Label_9
+Label_8 :
+    li $t0,268435904 
+    li $t1,268435900 
+    lw $t1,$t1 
+    li $t2,268435900 
+    lw $t2,$t2 
+    *,$t1,$t2,$t1
+    = $t0,$t1 
+Label_9 :
+    Ascii "Output result : " ,4 
+    la $a0,4 
+    li $v0,4 
+    syscall  
+    li $t0,268435904 
+    lw $t0,$t0 
+    move $a0,$t0 
+    li $v0,1 
+    syscall  
+    la $a0,0 
+    li $v0,4 
+    syscall  
+    jr $ra
+end :
+    void,end,(), 
+    var,int,i, 
+    li $t0,268435912 
+    li $t1,0 
+    = $t0,$t1 
+    li $t0,268435912 
+    li $t1,0 
+    = $t0,$t1 
+    j Label_16
+Label_15 :
+    li $t0,268435912 
+    lw $t0,$t0 
+    li $t1,268435460 
+    lw $t1,$t1 
+    require,$t0,<=,$t1
+    ble,$t0,$t1,Label_16
+    j Label_14
+Label_16 :
+    li $t0,268435912 
+    lw $t0,$t0 
+    *,$t0,4,$t0
+    addi,$t0,268435464,$t0
+    lw $t0,$t0 
+    move $a0,$t0 
+    li $v0,11 
+    syscall  
+    la $a0,0 
+    li $v0,4 
+    syscall  
+    li $t0,268435912 
+    lw $t0,$t0 
+    addi,$t0,1,$t0
+    li $t1,268435912 
+    = $t1,$t0 
+    j Label_15
+Label_14 :
+    jr $ra
+main :
+    var,int,i, 
+    addi,$sp,-64,$sp
+    sw,$t0,0,$sp
+    sw,$t1,4,$sp
+    sw,$t2,8,$sp
+    sw,$t3,12,$sp
+    sw,$t4,16,$sp
+    sw,$t5,20,$sp
+    sw,$t6,24,$sp
+    sw,$t7,28,$sp
+    sw,$s1,32,$sp
+    sw,$s2,36,$sp
+    sw,$s3,40,$sp
+    sw,$s4,44,$sp
+    sw,$s5,48,$sp
+    sw,$s6,52,$sp
+    sw,$s7,56,$sp
+    sw,$ra,60,$sp
+    call assign
+    lw1,$t0,0,$sp
+    lw1,$t1,4,$sp
+    lw1,$t2,8,$sp
+    lw1,$t3,12,$sp
+    lw1,$t4,16,$sp
+    lw1,$t5,20,$sp
+    lw1,$t6,24,$sp
+    lw1,$t7,28,$sp
+    lw1,$s1,32,$sp
+    lw1,$s2,36,$sp
+    lw1,$s3,40,$sp
+    lw1,$s4,44,$sp
+    lw1,$s5,48,$sp
+    lw1,$s6,52,$sp
+    lw1,$s7,56,$sp
+    lw1,$ra,60,$sp
+    addi,$sp,64,$sp
+    Ascii "Please input a number 1 or 2 " ,5 
+    la $a0,5 
+    li $v0,4 
+    syscall  
+    la $a0,0 
+    li $v0,4 
+    syscall  
+    li $t0,268435920 
+    addi,$sp,-64,$sp
+    sw,$t0,0,$sp
+    sw,$t1,4,$sp
+    sw,$t2,8,$sp
+    sw,$t3,12,$sp
+    sw,$t4,16,$sp
+    sw,$t5,20,$sp
+    sw,$t6,24,$sp
+    sw,$t7,28,$sp
+    sw,$s1,32,$sp
+    sw,$s2,36,$sp
+    sw,$s3,40,$sp
+    sw,$s4,44,$sp
+    sw,$s5,48,$sp
+    sw,$s6,52,$sp
+    sw,$s7,56,$sp
+    sw,$ra,60,$sp
+    call choice
+    lw1,$t0,0,$sp
+    lw1,$t1,4,$sp
+    lw1,$t2,8,$sp
+    lw1,$t3,12,$sp
+    lw1,$t4,16,$sp
+    lw1,$t5,20,$sp
+    lw1,$t6,24,$sp
+    lw1,$t7,28,$sp
+    lw1,$s1,32,$sp
+    lw1,$s2,36,$sp
+    lw1,$s3,40,$sp
+    lw1,$s4,44,$sp
+    lw1,$s5,48,$sp
+    lw1,$s6,52,$sp
+    lw1,$s7,56,$sp
+    lw1,$ra,60,$sp
+    addi,$sp,64,$sp
+    move $t1,$v0 
+    = $t0,$t1 
+    li $t0,268435920 
+    lw $t0,$t0 
+    li $t1,1 
+    bne,$t0,$t1,Label_18
+    addi,$sp,-64,$sp
+    sw,$t0,0,$sp
+    sw,$t1,4,$sp
+    sw,$t2,8,$sp
+    sw,$t3,12,$sp
+    sw,$t4,16,$sp
+    sw,$t5,20,$sp
+    sw,$t6,24,$sp
+    sw,$t7,28,$sp
+    sw,$s1,32,$sp
+    sw,$s2,36,$sp
+    sw,$s3,40,$sp
+    sw,$s4,44,$sp
+    sw,$s5,48,$sp
+    sw,$s6,52,$sp
+    sw,$s7,56,$sp
+    sw,$ra,60,$sp
+    call numb
+    lw1,$t0,0,$sp
+    lw1,$t1,4,$sp
+    lw1,$t2,8,$sp
+    lw1,$t3,12,$sp
+    lw1,$t4,16,$sp
+    lw1,$t5,20,$sp
+    lw1,$t6,24,$sp
+    lw1,$t7,28,$sp
+    lw1,$s1,32,$sp
+    lw1,$s2,36,$sp
+    lw1,$s3,40,$sp
+    lw1,$s4,44,$sp
+    lw1,$s5,48,$sp
+    lw1,$s6,52,$sp
+    lw1,$s7,56,$sp
+    lw1,$ra,60,$sp
+    addi,$sp,64,$sp
+    j Label_17
+Label_18 :
+    li $t1,2 
+    bne,$t0,$t1,Label_19
+    addi,$sp,-64,$sp
+    sw,$t0,0,$sp
+    sw,$t1,4,$sp
+    sw,$t2,8,$sp
+    sw,$t3,12,$sp
+    sw,$t4,16,$sp
+    sw,$t5,20,$sp
+    sw,$t6,24,$sp
+    sw,$t7,28,$sp
+    sw,$s1,32,$sp
+    sw,$s2,36,$sp
+    sw,$s3,40,$sp
+    sw,$s4,44,$sp
+    sw,$s5,48,$sp
+    sw,$s6,52,$sp
+    sw,$s7,56,$sp
+    sw,$ra,60,$sp
+    call charac
+    lw1,$t0,0,$sp
+    lw1,$t1,4,$sp
+    lw1,$t2,8,$sp
+    lw1,$t3,12,$sp
+    lw1,$t4,16,$sp
+    lw1,$t5,20,$sp
+    lw1,$t6,24,$sp
+    lw1,$t7,28,$sp
+    lw1,$s1,32,$sp
+    lw1,$s2,36,$sp
+    lw1,$s3,40,$sp
+    lw1,$s4,44,$sp
+    lw1,$s5,48,$sp
+    lw1,$s6,52,$sp
+    lw1,$s7,56,$sp
+    lw1,$ra,60,$sp
+    addi,$sp,64,$sp
+    j Label_17
+Label_19 :
+    Ascii "input error " ,6 
+    la $a0,6 
+    li $v0,4 
+    syscall  
+    la $a0,0 
+    li $v0,4 
+    syscall  
+    j Label_17
+Label_17 :
+    addi,$sp,-64,$sp
+    sw,$t0,0,$sp
+    sw,$t1,4,$sp
+    sw,$t2,8,$sp
+    sw,$t3,12,$sp
+    sw,$t4,16,$sp
+    sw,$t5,20,$sp
+    sw,$t6,24,$sp
+    sw,$t7,28,$sp
+    sw,$s1,32,$sp
+    sw,$s2,36,$sp
+    sw,$s3,40,$sp
+    sw,$s4,44,$sp
+    sw,$s5,48,$sp
+    sw,$s6,52,$sp
+    sw,$s7,56,$sp
+    sw,$ra,60,$sp
+    call end
+    lw1,$t0,0,$sp
+    lw1,$t1,4,$sp
+    lw1,$t2,8,$sp
+    lw1,$t3,12,$sp
+    lw1,$t4,16,$sp
+    lw1,$t5,20,$sp
+    lw1,$t6,24,$sp
+    lw1,$t7,28,$sp
+    lw1,$s1,32,$sp
+    lw1,$s2,36,$sp
+    lw1,$s3,40,$sp
+    lw1,$s4,44,$sp
+    lw1,$s5,48,$sp
+    lw1,$s6,52,$sp
+    lw1,$s7,56,$sp
+    lw1,$ra,60,$sp
+    addi,$sp,64,$sp
+endprogram :

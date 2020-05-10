@@ -1,0 +1,242 @@
+const,int,num,0
+const,int,no,0
+const,char,sym,a
+const,char,tb,b
+int,count,(), 
+para,int,m, 
+var,int,i, 
+=,0, ,i
+beq,m,1,Label_1
+Label_1 :
++,1,m,t1
+=,t1, ,i
+j Sentence
+beq,m,2,Label_2
+Label_2 :
++,2,m,t1
+=,t1, ,i
+j Sentence
+beq,m,3,Label_3
+Label_3 :
++,3,m,t1
+=,t1, ,i
+j Sentence
+j Label_4
+Label_4 :
+=,0, ,i
+Sentence :
+ret,i, , 
+void,top,(), 
+var,int,i, 
+var,int,j, 
+var,int,n, 
+var,int,r, 
+var,int,k, 
+var,int,top1, 
+var,int,top2, 
+var,int,f, 
+var,int,array,b
+var,char,array,a
+var,char,array,c
+var,char,array,d
+-,top2,1,t1
+=,d[t1],t2
+require,t2,==,-
+bne,t2,-,Label_5
+-,top1,2,t1
+=,b[t1],t2
+-,top1,1,t3
+=,b[t3],t4
+-,t2,t4,t5
+=,t5, ,f
+-,top1,2,t1
+=,t1, ,top1
+-,top2,1,t1
+=,t1, ,top2
++,top2,1,t1
+=,d[t1],t2
+=,t2,d[top2]
+=,f,b[top1]
+=,d[top2],t1
+require,t1,==,1
+bne,t1,1,Label_5
+-,top2,1,t1
+=,t1, ,top2
+Label_5 :
+=,d[top2],t1
+require,t1,==,1
+bne,t1,1,Label_6
+=,2, ,top2
+Label_6 :
+Label_7 :
+-,top2,1,t1
+=,d[t1],t2
+require,t2,==,*
+bne,t2,*,Label_8
+-,top1,2,t1
+=,b[t1],t2
+-,top1,1,t3
+=,b[t3],t4
+*,t2,t4,t5
+=,t5, ,f
+-,top1,2,t1
+=,t1, ,top1
+-,top2,1,t1
+=,t1, ,top2
++,top2,1,t1
+=,d[t1],t2
+=,t2,d[top2]
+=,f,b[top1]
+=,d[top2],t1
+require,t1,==,1
+bne,t1,1,Label_8
++,top2,1,t1
+=,t1, ,top2
+Label_8 :
+=,d[top2],t1
+require,t1,==,1
+bne,t1,1,Label_9
+-,top2,1,t1
+=,t1, ,top2
+Label_9 :
+Label_10 :
+void,initial,(), 
+para,char,c, 
+var,int,i, 
+=,0, ,i
+require,i,<,100
+Label_11 :
++,i,1,t1
+=,t1, ,i
+=,0,c[i]
+blt,i,100,Label_11
+void,cancel,(), 
+para,char,a, 
+var,int,i, 
+var,int,s, 
+var,int,j, 
+=,0, ,i
+=,0, ,j
+=,100, ,s
+=,0, ,i
+require,i,<,s
+Label_11 :
++,i,1,t1
+=,t1, ,i
+=,a[i],t1
+require,t1,==,a
+bne,t1,a,Label_11
+=,i, ,j
+require,j,<,s
+Label_11 :
++,j,1,t1
+=,t1, ,j
++,j,1,t1
+=,a[t1],t2
+=,t2,a[j]
+blt,j,s,Label_11
+-,s,1,t1
+=,t1, ,s
+Label_11 :
+blt,j,s,Label_12
+call,count, , 
+push,s, , 
+=,a[i],t1
+require,t1,==,c
+bne,t1,c,Label_12
+=,i, ,j
+require,j,<,s
+Label_12 :
++,j,1,t1
+=,t1, ,j
+-,j,1,t1
+=,a[t1],t2
+=,t2,a[j]
+blt,j,s,Label_12
++,s,1,t1
+=,t1, ,s
+Label_12 :
++,s,5,t1
+=,t1, ,s
+var,char,array,a
+var,char,array,b
+var,int,i, 
+var,int,j, 
+var,int,s, 
+var,int,n, 
+var,int,array,c
+var,int,k, 
+call,initial, , 
+push,a, , 
+call,initial, , 
+push,b, , 
+call,count, , 
+push,s, , 
+call,cancel, , 
+push,a, , 
+call,top, , 
+=,0, ,n
+=,0, ,i
+require,i,<,100
+Label_13 :
++,i,1,t1
+=,t1, ,i
+=,b[i],t1
+require,t1,==,*
+bne,t1,*,Label_13
+=,c[i],t1
++,i,1,t2
+=,c[t2],t3
+*,t1,t3,t4
+=,t4,c[i]
++,i,1,t1
+=,t1, ,j
+require,j,<,100
+Label_13 :
++,j,1,t1
+=,t1, ,j
++,j,1,t1
+=,c[t1],t2
+=,t2,c[j]
+blt,j,100,Label_13
+=,i, ,j
+require,j,<,100
+Label_13 :
++,j,1,t1
+=,t1, ,j
++,j,1,t1
+=,b[t1],t2
+=,t2,b[j]
+blt,j,100,Label_13
+=,1, ,i
+Label_13 :
+blt,j,100,Label_14
+=,0, ,j
+require,j,<,m
+Label_14 :
++,j,1,t1
+=,t1, ,j
+=,0, ,i
+require,i,<,n
+Label_14 :
++,i,1,t1
+=,t1, ,i
+=,a[i],t1
++,i,1,t1
+=,a[t1],t2
+require,t1,>,t2
+ble,t1,t2,Label_14
+=,i, ,k
+require,k,<,n
+Label_14 :
++,k,1,t1
+=,t1, ,k
++,k,1,t1
+=,a[t1],t2
+=,t2,a[k]
+blt,k,n,Label_14
+Label_14 :
++,s,1,t1
+=,t1, ,s
+blt,k,n,Label_15
+blt,k,n,Label_15

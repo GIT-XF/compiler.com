@@ -1,0 +1,905 @@
+.data
+	size:    .space    4
+	sym:    .space    400
+	parastack:    .space    10000
+	opnumstack:    .space    10000
+	string0: .asciiz "\n" 
+	string1: .asciiz "Please input a character ' a ' ~ ' z ' : " 
+	string2: .asciiz "Output result : " 
+	string3: .asciiz "Please input a number " 
+	string4: .asciiz "Output result : " 
+	string5: .asciiz "Please input a number 1 or 2 " 
+	string6: .asciiz "input error " 
+.text
+	j main
+	nop
+choice:
+	addi,$sp,$sp,-1024
+	sw $ra,0($sp)
+	li $v0,5
+	syscall
+	move $t0,$v0
+	sw $t0,4($sp)
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s1,$s7
+	li $t0,1
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s2,$s7
+	bne,$s1,$s2,Label_1
+	nop
+	li $t0,1
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $v0,$s7
+	lw $ra,0($sp)
+	addi,$sp,$sp,1024
+	beq,$ra,0,endprogram
+	nop
+	jr $ra
+	nop
+	j Label_2
+	nop
+Label_1:
+Label_2:
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s1,$s7
+	li $t0,2
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s2,$s7
+	bne,$s1,$s2,Label_3
+	nop
+	li $t0,2
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $v0,$s7
+	lw $ra,0($sp)
+	addi,$sp,$sp,1024
+	beq,$ra,0,endprogram
+	nop
+	jr $ra
+	nop
+	j Label_4
+	nop
+Label_3:
+	li $t0,0
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $v0,$s7
+	lw $ra,0($sp)
+	addi,$sp,$sp,1024
+	beq,$ra,0,endprogram
+	nop
+	jr $ra
+	nop
+Label_4:
+	lw $ra,0($sp)
+	addi,$sp,$sp,1024
+	jr $ra
+	nop
+assign:
+	addi,$sp,$sp,-1024
+	sw $ra,0($sp)
+	li $t0,4
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,0
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	la $a0,sym
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	mul,$t3,$t3,4
+	la $a0,sym
+	add,$t3,$t3,$a0
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	li $t0,84
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	la $a0,sym
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,1
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	add,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	mul,$t3,$t3,4
+	la $a0,sym
+	add,$t3,$t3,$a0
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	li $t0,72
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	la $a0,sym
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,2
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	add,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	mul,$t3,$t3,4
+	la $a0,sym
+	add,$t3,$t3,$a0
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	li $t0,65
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	la $a0,sym
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,3
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	add,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	mul,$t3,$t3,4
+	la $a0,sym
+	add,$t3,$t3,$a0
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	li $t0,78
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	la $a0,sym
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,4
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	add,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	mul,$t3,$t3,4
+	la $a0,sym
+	add,$t3,$t3,$a0
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	li $t0,75
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	la $a0,sym
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,5
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	add,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	mul,$t3,$t3,4
+	la $a0,sym
+	add,$t3,$t3,$a0
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	li $t0,95
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	la $a0,sym
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,6
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	add,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	mul,$t3,$t3,4
+	la $a0,sym
+	add,$t3,$t3,$a0
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	li $t0,89
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	la $a0,sym
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,7
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	add,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	mul,$t3,$t3,4
+	la $a0,sym
+	add,$t3,$t3,$a0
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	li $t0,79
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	la $a0,sym
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,8
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	add,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	mul,$t3,$t3,4
+	la $a0,sym
+	add,$t3,$t3,$a0
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	li $t0,85
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	la $a0,size
+	la $a0,size
+	sw $a0,0($a2)
+	addi,$a2,$a2,4
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,8
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	add,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	lw $ra,0($sp)
+	addi,$sp,$sp,1024
+	jr $ra
+	nop
+charac:
+	addi,$sp,$sp,-1024
+	sw $ra,0($sp)
+	la $a0,string1
+	li $v0,4
+	syscall
+	la $a0,string0
+	li $v0,4
+	syscall
+	li $v0,12
+	syscall
+	move $t0,$v0
+	sw $t0,8($sp)
+	li $t0,12
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	lw $t0,8($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	li $t0,4
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,32
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	j Label_7
+	nop
+Label_6:
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s1,$s7
+	li $t0,0
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s2,$s7
+	bgt,$s1,$s2,Label_7
+	nop
+	j Label_5
+	nop
+Label_7:
+	li $t0,12
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	lw $t0,12($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,1
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sub,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	lw $t0,4($sp)
+	sub,$t0,$t0,1
+	sw $t0,4($sp)
+	j Label_6
+	nop
+Label_5:
+	la $a0,string2
+	li $v0,4
+	syscall
+	lw $t0,12($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $a0,$s7
+	li $v0,11
+	syscall
+	la $a0,string0
+	li $v0,4
+	syscall
+	lw $ra,0($sp)
+	addi,$sp,$sp,1024
+	jr $ra
+	nop
+numb:
+	addi,$sp,$sp,-1024
+	sw $ra,0($sp)
+	la $a0,string3
+	li $v0,4
+	syscall
+	la $a0,string0
+	li $v0,4
+	syscall
+	li $v0,5
+	syscall
+	move $t0,$v0
+	sw $t0,4($sp)
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s1,$s7
+	li $t0,10
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s2,$s7
+	blt,$s1,$s2,Label_8
+	nop
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s1,$s7
+	li $t0,20
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s2,$s7
+	blt,$s1,$s2,Label_10
+	nop
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s1,$s7
+	li $t0,30
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s2,$s7
+	blt,$s1,$s2,Label_12
+	nop
+	li $t0,8
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,2
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	mul,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	j Label_13
+	nop
+Label_12:
+	li $t0,8
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,3
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	mul,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+Label_13:
+	j Label_11
+	nop
+Label_10:
+	li $t0,8
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,4
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	mul,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+Label_11:
+	j Label_9
+	nop
+Label_8:
+	li $t0,8
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	mul,$t3,$t4,$t3
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+Label_9:
+	la $a0,string4
+	li $v0,4
+	syscall
+	lw $t0,8($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $a0,$s7
+	li $v0,1
+	syscall
+	la $a0,string0
+	li $v0,4
+	syscall
+	lw $ra,0($sp)
+	addi,$sp,$sp,1024
+	jr $ra
+	nop
+end:
+	addi,$sp,$sp,-1024
+	sw $ra,0($sp)
+	li $t0,4
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,0
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	li $t0,4
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	li $t0,0
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	j Label_16
+	nop
+Label_15:
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s1,$s7
+	la $a0,size
+	la $a0,size
+	lw $t0,0($a0)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $s2,$s7
+	ble,$s1,$s2,Label_16
+	nop
+	j Label_14
+	nop
+Label_16:
+	la $a0,sym
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	mul,$t3,$t3,4
+	la $a0,sym
+	add,$a0,$a0,$t3
+	lw $t3,0($a0)
+	sw $t3,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $a0,$s7
+	li $v0,11
+	syscall
+	la $a0,string0
+	li $v0,4
+	syscall
+	lw $t0,4($sp)
+	addi,$t0,$t0,1
+	sw $t0,4($sp)
+	j Label_15
+	nop
+Label_14:
+	lw $ra,0($sp)
+	addi,$sp,$sp,1024
+	jr $ra
+	nop
+main:
+	addi,$sp,$sp,-1024
+	la $a1,parastack
+	la $a2,opnumstack
+	addi,$a1,$a1,4
+	addi,$sp,$sp,-1024
+	addi,$sp,$sp,1024
+	sub,$a1,$a1,4
+	jal assign
+	nop
+	la $a0,string5
+	li $v0,4
+	syscall
+	la $a0,string0
+	li $v0,4
+	syscall
+	li $t0,4
+	add,$t0,$t0,$sp
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a1,$a1,4
+	addi,$sp,$sp,-1024
+	addi,$sp,$sp,1024
+	sub,$a1,$a1,4
+	jal choice
+	nop
+	sw $v0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t3,$s7
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t4,$s7
+	sw $t3,0($t4)
+	lw $t0,4($sp)
+	sw $t0,0($a2)
+	addi,$a2,$a2,4
+	addi,$a2,$a2,-4
+	lw $s7,0($a2)
+	move $t5,$s7
+	li $t6,1
+	bne,$t5,$t6,Label_18
+	nop
+	addi,$a1,$a1,4
+	addi,$sp,$sp,-1024
+	addi,$sp,$sp,1024
+	sub,$a1,$a1,4
+	jal numb
+	nop
+	j Label_17
+	nop
+Label_18:
+	li $t6,2
+	bne,$t5,$t6,Label_19
+	nop
+	addi,$a1,$a1,4
+	addi,$sp,$sp,-1024
+	addi,$sp,$sp,1024
+	sub,$a1,$a1,4
+	jal charac
+	nop
+	j Label_17
+	nop
+Label_19:
+	la $a0,string6
+	li $v0,4
+	syscall
+	la $a0,string0
+	li $v0,4
+	syscall
+	j Label_17
+	nop
+Label_17:
+	addi,$a1,$a1,4
+	addi,$sp,$sp,-1024
+	addi,$sp,$sp,1024
+	sub,$a1,$a1,4
+	jal end
+	nop
+	addi,$sp,$sp,1024
+endprogram:
